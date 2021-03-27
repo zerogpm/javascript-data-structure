@@ -30,10 +30,6 @@ class linkedlist {
 
     getAt(index) {
 
-        if (!this.head) {
-            return null;
-        }
-
         let counter = 0;
         let node = this.head;
         while (node) {
@@ -89,6 +85,46 @@ class linkedlist {
         previous.next = null;
     }
 
+    removeAt(index) {
+
+        let node = this.head;
+        if (node === null) {
+            return 'empty list';
+        }
+
+        if (index === 0) {
+            this.head = this.head.next;
+            return
+        }
+
+        let previousNode = this.getAt(index - 1);
+
+        if (!previousNode || !previousNode.next) {
+            return 'out of bound';
+        }
+
+        previousNode.next = previousNode.next.next;
+
+        return 'node removed';
+    }
+
+    insertAt(index, data) {
+        if (!this.head) {
+            this.head = new Node(data);
+            return;
+        }
+
+        if (index === 0) {
+            this.head = new Node(data, this.head);
+            return;
+        }
+
+        const previousNode = this.getAt(index - 1) || this.getLast();
+
+        previousNode.next = new Node(data, previousNode.next);
+
+    }
+
     insertLast(data) {
 
         if (!this.head) {
@@ -104,10 +140,8 @@ class linkedlist {
 const link = new linkedlist();
 link.insertFirst(5);
 link.insertFirst(11);
-link.insertLast(33);
 
 
-console.log(link.getLast());
+console.log("insert at", link.insertAt(0, 15));
 console.log(link.size());
-console.log(link.getAt(13));
 console.log(link.getFirst());
