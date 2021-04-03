@@ -5,7 +5,7 @@ class Node {
     }
 }
 
-class linkedlist {
+class LinkedList  {
     constructor() {
         this.head = null;
     }
@@ -137,11 +137,4 @@ class linkedlist {
     }
 }
 
-const link = new linkedlist();
-link.insertFirst(5);
-link.insertFirst(11);
-
-
-console.log("insert at", link.insertAt(0, 15));
-console.log(link.size());
-console.log(link.getFirst());
+module.exports = { Node, LinkedList };
