@@ -146,15 +146,18 @@ class DoublyLinkedList {
 
     insertLast(data) {
         let node = new Node(data);
+
         if (!this.head) {
             this.head = node;
             this.tail = node;
-        } else {
-            let temp = this.tail;
-            this.tail = node;
-            node.prev = temp;
-            temp.next = node;
+            return true;
         }
+
+        let temp = this.tail;
+        this.tail = node;
+        node.prev = temp;
+        temp.next = node;
+
         return this;
     }
 
