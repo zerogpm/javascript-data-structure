@@ -9,4 +9,8 @@ l.insertLast('a');
 l.insertLast('b');
 l.insertLast('c');
 
-console.log(util.inspect(reverse(l), false, null, true /* enable colors */))
+test('reverse linkedlist', () => {
+    expect("ok").toEqual('ok');
+});
+
+//console.log(util.inspect(reverse(l), false, null, true /* enable colors */))

@@ -1,6 +1,14 @@
 const maxChar = require('./index');
 
-//expect(maxChar('abcdefghijklmnaaaaa')).toEqual('a');
+test('maxChar function exists', () => {
+    expect(typeof maxChar).toEqual('function');
+});
 
-let result = maxChar('aaaacccccb');
-console.log(result);
+test('Finds the most frequently used char', () => {
+    expect(maxChar('a')).toEqual('a');
+    expect(maxChar('abcdefghijklmnaaaaa')).toEqual('a');
+});
+
+test('Works with numbers in the string', () => {
+    expect(maxChar('ab1c1d1e1f1g1')).toEqual('1');
+});

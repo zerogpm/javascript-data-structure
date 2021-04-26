@@ -3,5 +3,7 @@ services:
   node-app:
     restart: always
     build: .
+    volumes:
+      - .:/usr/app
     ports:
-      - "4081:8081"
+      - "3000:3000"
