@@ -9,7 +9,6 @@
 // chunk([1, 2, 3, 4, 5], 10) --> [[ 1, 2, 3, 4, 5]]
 
 function chunk(array, size) {
-    //solution 1
     // let chunked = [];
     // for (element of array) {
     //     const last = chunked[chunked.length - 1];
@@ -20,15 +19,15 @@ function chunk(array, size) {
     //     }
     // }
     // return chunked;
-
-    //solution 2:
-    let chunked = [];
     let index = 0;
+    const chunked = [];
     while (index < array.length) {
-        chunked.push(array.slice(index, index + 2));
+        chunked.push(array.slice(index, index + size));
         index += size;
     }
-    return chunked
+
+    return chunked;
+
 }
 
 module.exports = chunk;
